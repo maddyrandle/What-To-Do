@@ -1,20 +1,18 @@
-@mixin rounded-corners($radius) {
-  -webkit-border-radius: $radius;
-     -moz-border-radius: $radius;
-      -ms-border-radius: $radius;
-          border-radius: $radius;
-}
+// @mixin rounded-corners($radius) {
+//   -webkit-border-radius: $radius;
+//      -moz-border-radius: $radius;
+//       -ms-border-radius: $radius;
+//           border-radius: $radius;
+// }
 
-
-
-@mixin icon-hover {
-  opacity: .7;
-  cursor: pointer;
-  &:hover {
-    opacity: 1;
-    transition: opacity .2s;
-  }
-}
+// @mixin icon-hover {
+//   opacity: .7;
+//   cursor: pointer;
+//   &:hover {
+//     opacity: 1;
+//     transition: opacity .2s;
+//   }
+// }
 
 // @mixin container-grid {
 //   display: grid;
@@ -23,26 +21,26 @@
 //   grid-gap: 50px;
 // }
 
-@mixin box-shadow-radius {
-  border-radius: 7px;
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
-}
+// @mixin box-shadow-radius {
+//   border-radius: 7px;
+//   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
+// }
 
-@mixin button($color) {
-  align-self: center;
-  border-radius: 5px;
-  cursor: pointer;
-  padding: 10px 40px;
-  border: 2px solid $color;
-  font-size: 1.2rem;
-  font-weight: bold;
-  opacity: .8;
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
-  color: $color;
-  &:hover {
-    opacity: 1;
-    color: #fff;
-    background-color: $color;
-    transition: color .5s, background-color .5s, opacity .5s;
-  }
-}
+// @mixin button($color) {
+//   align-self: center;
+//   border-radius: 5px;
+//   cursor: pointer;
+//   padding: 10px 40px;
+//   border: 2px solid $color;
+//   font-size: 1.2rem;
+//   font-weight: bold;
+//   opacity: .8;
+//   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
+//   color: $color;
+//   &:hover {
+//     opacity: 1;
+//     color: #fff;
+//     background-color: $color;
+//     transition: color .5s, background-color .5s, opacity .5s;
+//   }
+// }
