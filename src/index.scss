@@ -1,30 +1,51 @@
 @import './scss/variables';
 @import './scss/mixins';
+@import './src/components/Nav/Nav';
+@import './src/components/Card/Card';
+@import './src/components/Activities/Activities';
+@import './src/components/Activity/Activity';
+@import './src/components/Form/Form';
 
-body,
+
 * {
   box-sizing: border-box;
-  color: $font-dark;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
 }
 
-body,
 html {
-   height: 100vh;
-   margin: 0;
-   width: 100%;
-   background-color: $background-light;
- }
+  font-size: 62.5%;
+}
+
+body,
+#root {
+  background-color: $background-light;
+  height: 100vh;
+  width: 100vw;
+}
+
+#root {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
 
 .app-container {
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  background-color: $background-light;
+  height: 80%;
+  width: 90%;
 }
+
+// HERE TEMPORARILY
+
+
+input {
+  font-size: 16px;
+  padding: 1rem;
+}
+
+#blockColorblindContent {
+  display: none;
+}
+
+@import './media-queries';
