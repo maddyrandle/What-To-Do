@@ -1,0 +1,23 @@
+.nav {
+  display: flex;
+  height: 10%;
+  width: 45%;
+}
+
+.activities-btn,
+.favorites-btn {
+  align-items: center;
+  display: flex;
+  font-size: 2rem;
+  justify-content: center;
+  height: 100%;
+  width: 50%;
+}
+
+.activities-btn {
+  background-color: $background-medium-dark;
+}
+
+.favorites-btn {
+  background-color: $background-medium;
+}
