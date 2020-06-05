@@ -27,8 +27,11 @@ class App extends Component {
       .catch(err => console.error(`There was an error: ${err}`));
   }
 
-  updateActivityType = (type) => {
-    this.setState({type: type})
+  updateActivityType = type => this.setState({type: type});
+
+  updateUserList = () => {
+    !this.state.userList.includes(this.state.activity) &&
+      this.setState({userList: [...this.state.userList, this.state.activity]})
   }
 
   render() {
@@ -39,6 +42,7 @@ class App extends Component {
           activity={this.state}
           updateActivityType={this.updateActivityType}
           getNewActivity={this.componentDidMount}
+          updateUserList={this.updateUserList}
         />
       </main>
     )
