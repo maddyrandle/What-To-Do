@@ -1,28 +1,39 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
-import Landing from '../Landing/Landing';
-import Loading from '../Loading/Loading';
+// import { Route } from 'react-router-dom';
+
 import Nav from '../Nav/Nav';
-// import { getApi } from "../apiCalls"
+import Card from '../Card/Card';
+
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-
+      activity: {},
+      userList: [],
     }
+  }
+
+  componentDidMount() {
+    const type = 'education';
+    fetch(`http://www.boredapi.com/api/activity/?type=${type}&participants=1&minprice=0&maxprice=0.5`)
+      .then(response => response.json())
+      .then(activityData => this.setState({activity: activityData}))
+      .catch(err => console.error(`There was an error: ${err}`));
   }
 
   render() {
     return (
-      <section className="app-container">
-        <h1>Solo Project</h1>
-        <Route exact path='/landing' render={ () => <Landing /> }/>
-        <Route exact path='/loading' render={ () => <Loading /> }/>
-        <Route exact path='/nav' render={ () => <Nav /> }/>
-      </section>
-    );
+      <main className="app-container">
+        <Nav />
+        <Card activity={this.state.activity} />
+      </main>
+    )
   }
 }
 
 export default App;
+
+
+// <Route exact path='/Favorites' render={ () => <Favorites /> }/>
+// <Route exact path='/loading' render={ () => <Loading /> }/>
