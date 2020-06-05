@@ -1,0 +1,53 @@
+@media (min-width: 768px) {
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+    width: 70rem;
+  }
+
+  .nav {
+    height: 17%;
+    width: 40%;
+  }
+
+  .card {
+    display: flex;
+    height: 83%;
+    width: 100%;
+  }
+
+  .activities {
+    height: 100%;
+    justify-content: initial;
+    width: 65%;
+
+    .card-title {
+      padding-bottom: 1rem;
+    }
+
+    .activity-card {
+      height: 30%;
+    }
+
+    .save-activity {
+      // margin-top: 12rem;
+    }
+  }
+
+  .form {
+    height: 100%;
+    padding: 1rem 2rem;
+    width: 35%;
+
+    .type {
+      padding: .5rem;
+    }
+
+    .another {
+      // margin-top: 17.5rem;
+      width: 100%;
+    }
+  }
+
+}
