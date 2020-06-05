@@ -10,23 +10,36 @@ class App extends Component {
     super();
     this.state = {
       activity: {},
+      type: 'education',
       userList: [],
     }
   }
 
-  componentDidMount() {
-    const type = 'education';
-    fetch(`http://www.boredapi.com/api/activity/?type=${type}&participants=1&minprice=0&maxprice=0.5`)
+  componentDidMount = () => {
+    fetch(`http://www.boredapi.com/api/activity/?type=${this.state.type}&participants=1&minprice=0&maxprice=0.5`)
       .then(response => response.json())
-      .then(activityData => this.setState({activity: activityData}))
+      .then(activityData => this.setState(
+        {
+          activity: activityData,
+          type: activityData.type
+        }
+      ))
       .catch(err => console.error(`There was an error: ${err}`));
+  }
+
+  updateActivityType = (type) => {
+    this.setState({type: type})
   }
 
   render() {
     return (
       <main className="app-container">
         <Nav />
-        <Card activity={this.state.activity} />
+        <Card
+          activity={this.state}
+          updateActivityType={this.updateActivityType}
+          getNewActivity={this.componentDidMount}
+        />
       </main>
     )
   }
