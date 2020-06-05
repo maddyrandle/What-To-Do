@@ -19,3 +19,16 @@
   padding: .5rem;
   width: 40%;
 }
+
+.activity-card {
+  background-color: $background-light;
+  font-size: 22px;
+  height: 50%;
+  padding: 1rem;
+  width: 100%;
+}
+
+.description {
+  height: 100%;
+  overflow: scroll;
+}
