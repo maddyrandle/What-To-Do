@@ -1,7 +1,7 @@
 @import './scss/variables';
 @import './scss/mixins';
 @import './src/components/Nav/Nav';
-@import './src/components/Card/Card';
+@import './src/components/MyList/MyList';
 @import './src/components/Activities/Activities';
 @import './src/components/Form/Form';
 
@@ -19,7 +19,7 @@ html {
 
 body,
 #root {
-  background-color: $background-light;
+  background-color: $background-dark;
   height: 100vh;
   width: 100vw;
 }
@@ -31,16 +31,14 @@ body,
 }
 
 .app-container {
-  height: 80%;
+  height: 600px;
+  margin-bottom: 7rem;
   width: 90%;
 }
 
-// HERE TEMPORARILY
-
-
-input {
-  font-size: 16px;
-  padding: 1rem;
+.card {
+  height: 95%;
+  width: 100%;
 }
 
 #blockColorblindContent {
