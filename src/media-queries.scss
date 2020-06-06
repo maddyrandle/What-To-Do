@@ -2,18 +2,17 @@
   .app-container {
     display: flex;
     flex-direction: column;
-    height: 50%;
-    width: 70rem;
+    height: 450px;
+    padding: 1rem;
+    width: 80rem;
   }
 
   .nav {
-    height: 17%;
     width: 40%;
   }
 
   .card {
     display: flex;
-    height: 83%;
     width: 100%;
   }
 
@@ -27,11 +26,11 @@
     }
 
     .activity-card {
-      height: 40%;
+      height: 80px;
     }
 
-    .save-activity {
-      // margin-top: 12rem;
+    .save-activity-btn {
+      width: 45%;
     }
   }
 
@@ -44,10 +43,13 @@
       padding: .5rem;
     }
 
-    .another {
-      // margin-top: 17.5rem;
+    .another-btn {
       width: 100%;
     }
   }
 
+  .mylist {
+    height: 100%;
+    overflow: scroll;
+  }
 }
