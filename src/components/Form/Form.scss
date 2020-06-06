@@ -7,7 +7,7 @@
   padding: 2rem;
 }
 
-.label {
+.type-label {
   font-size: 16px;
   padding: 1rem 0;
   width: 100%;
@@ -19,9 +19,9 @@
   width: 100%;
 }
 
-.another {
+.another-btn {
+  color: $font-dark;
   font-size: 16px;
-  // margin-top: 14rem;
   padding: .5rem;
-  width: 40%;
+  width: 50%;
 }
