@@ -51,5 +51,14 @@
   .mylist {
     height: 100%;
     overflow: scroll;
+
+    .activity-name {
+      font-size: 24px;
+    }
+
+    .activity-details {
+      width: 16%;
+    }
+
   }
 }

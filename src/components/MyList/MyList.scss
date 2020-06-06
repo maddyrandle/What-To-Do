@@ -17,6 +17,27 @@
   width: 90%;
 }
 
+.type {
+  color: $accent-medium;
+  display: flex;
+  justify-content: flex-start;
+  font-size: 18px;
+}
+
+.activity-name {
+  padding-left: 2rem 0;
+  font-size: 20px;
+}
+
+.activity-details {
+  color: $background-medium-dark;
+  display: flex;
+  font-size: 16px;
+  justify-content: space-between;
+  width: 30%;
+
+}
+
 .clear-all-btn {
   @include button;
   border: none;
@@ -27,7 +48,7 @@
 }
 
 .empty-userlist-msg {
-  font-size: 28px;
+  font-size: 24px;
   padding: 3rem;
   text-align: center;
 }
