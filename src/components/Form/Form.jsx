@@ -5,16 +5,16 @@ class Form extends Component {
     super(props);
       this.state = {
         type: 'education',
-        participants: 1,
+        price: 0.5,
       }
   }
 
   updateType = e => this.setState({type: e.target.value});
-  updateParticipants = e => this.setState({[e.target.name]: e.target.value})
+  updatePrice = e => this.setState({[e.target.name]: e.target.value})
 
   getAnotherIdea = e => this.props.getNewActivity(
     this.state.type,
-    this.state.participants,
+    this.state.price,
   );
 
   render() {
@@ -32,13 +32,16 @@ class Form extends Component {
           <option value="busywork">Busywork</option>
         </select>
 
-        <label>Participants</label>
+        <label>Max. Budget</label>
         <input
           className="input"
-          name="participants"
-          placeholder="1"
-          value={ this.state.participants }
-          onChange={ this.updateParticipants }
+          name="price"
+          type="range"
+          min="0"
+          max="1"
+          step="0.1"
+          value={ this.state.price }
+          onChange={ this.updatePrice }
         />
 
         <button className="another-btn" onClick={this.getAnotherIdea}>
