@@ -7,12 +7,10 @@ const Card = ({ activity, getNewActivity, updateUserList }) => {
   return (
     <section className="card">
       <Activities
-        activity={ activity.activity }
-        userList={ activity.userList }
+        activity={ activity }
         updateUserList={ updateUserList }
       />
       <Form
-        type={ activity.type }
         getNewActivity={ getNewActivity }
       />
     </section>
