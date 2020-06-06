@@ -1,21 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Nav = ({ myList }) => {
-
+const Nav = () => {
   return (
     <nav className="nav">
-      <Link
-        to={'/'}
-        className="activities-btn"
-      >
+      <Link to={'/'} className="activities-btn">
         <p id="activities">Activities</p>
       </Link>
-
-      <Link
-        to={'/mylist'}
-        className="favorites-btn"
-      >
+      <Link to={'/mylist'} className="favorites-btn">
         <p id="mylist">My List</p>
       </Link>
     </nav>
