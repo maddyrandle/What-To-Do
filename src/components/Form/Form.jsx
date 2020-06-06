@@ -11,7 +11,7 @@ class Form extends Component {
 
   updateType = e => this.setState({type: e.target.value});
   updatePrice = e => this.setState({[e.target.name]: e.target.value})
-
+  
   getAnotherIdea = e => this.props.getNewActivity(
     this.state.type,
     this.state.price,
