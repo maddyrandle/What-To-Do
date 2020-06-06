@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Activities = ({ activity, userList, updateUserList }) => {
+const Activities = ({ activity, updateUserList }) => {
   const saveToUserList = (e) => updateUserList();
 
   return (
