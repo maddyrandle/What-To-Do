@@ -2,7 +2,8 @@ import React from 'react';
 import Activities from '../Activities/Activities';
 import Form from '../Form/Form';
 
-const Card = ({ activity, getNewActivity, updateActivityType, updateUserList }) => {
+const Card = ({ activity, getNewActivity, updateUserList }) => {
+
   return (
     <section className="card">
       <Activities
@@ -13,7 +14,6 @@ const Card = ({ activity, getNewActivity, updateActivityType, updateUserList }) 
       <Form
         type={ activity.type }
         getNewActivity={ getNewActivity }
-        updateActivityType={ updateActivityType }
       />
     </section>
   )
