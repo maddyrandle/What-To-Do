@@ -1,16 +1,19 @@
 .nav {
   display: flex;
-  height: 10%;
+  height: 60px;
   width: 45%;
 }
 
 .activities-btn,
 .favorites-btn {
+  @include button;
   align-items: center;
+  color: $font-dark;
   display: flex;
   font-size: 2rem;
   justify-content: center;
   height: 100%;
+  text-decoration: none;
   width: 50%;
 }
 
