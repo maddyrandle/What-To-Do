@@ -15,8 +15,6 @@ class App extends Component {
 
   componentDidMount = (type, price) => {
     fetch(`http://www.boredapi.com/api/activity/?type=${ type || "education" }&minprice=0&maxprice=${ price || 0.5 }`)
-
-
       .then(response => response.json())
       .then(activityData => this.setState({
         activity: activityData,
@@ -30,20 +28,16 @@ class App extends Component {
       this.setState({userList: [...this.state.userList, this.state.activity]})
   }
 
-  clearUserList = () => {
-    this.setState({userList: []})
-  }
+  clearUserList = () => this.setState({userList: []});
 
   render() {
     return (
       <main className="app-container">
         <BrowserRouter>
-          <Nav
-            myList={this.state.myList}
-          />
+          <Nav />
           <Route exact path='/'render={ () =>
             <Card
-              activity={this.state}
+              activity={this.state.activity}
               getNewActivity={this.componentDidMount}
               updateUserList={this.updateUserList}
             />
