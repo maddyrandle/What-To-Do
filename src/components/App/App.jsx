@@ -9,14 +9,12 @@ class App extends Component {
     super();
       this.state = {
         activity: {},
-        type: 'education',
         userList: [],
-        myList: false
       }
   }
 
-  componentDidMount = () => {
-    fetch(`http://www.boredapi.com/api/activity/?type=${this.state.type}&participants=1&minprice=0&maxprice=0.5`)
+  componentDidMount = (type, participants) => {
+    fetch(`http://www.boredapi.com/api/activity/?type=${ type || "education" }&participants=${ participants || 1 }&minprice=0&maxprice=0.5`)
       .then(response => response.json())
       .then(activityData => this.setState({
         activity: activityData,
@@ -24,8 +22,6 @@ class App extends Component {
       }))
       .catch(err => console.error(`There was an error: ${err}`));
   }
-
-  updateActivityType = type => this.setState({type: type});
 
   updateUserList = () => {
     !this.state.userList.includes(this.state.activity) &&
@@ -36,27 +32,17 @@ class App extends Component {
     this.setState({userList: []})
   }
 
-  handleMyList = (id) => {
-    if (id === 'mylist') {
-      this.setState({myList: true})
-    } else {
-      this.setState({myList: false})
-    }
-  }
-
   render() {
     return (
       <main className="app-container">
         <BrowserRouter>
           <Nav
             myList={this.state.myList}
-            handleMyList={this.handleMyList}
           />
           <Route exact path='/'render={ () =>
             <Card
               activity={this.state}
               getNewActivity={this.componentDidMount}
-              updateActivityType={this.updateActivityType}
               updateUserList={this.updateUserList}
             />
           } />
