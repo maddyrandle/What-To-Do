@@ -7,7 +7,7 @@ const Activities = ({ activity, userList, updateUserList }) => {
     <section className="activities">
       <p className="card-title">YOU SHOULD</p>
       <div className="activity-card">
-        <p className="activity-description">{activity.activity}</p>
+        <p className="activity-description">{ activity.activity || activity.error }</p>
       </div>
       <button className="save-activity-btn" onClick={saveToUserList}>
         Save For Later
