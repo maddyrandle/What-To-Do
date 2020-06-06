@@ -6,7 +6,7 @@ const Form = ({ type, getNewActivity, updateActivityType }) => {
 
   return (
     <section className="form">
-      <label className="label">Type</label>
+      <label className="type-label">Type</label>
       <select className="type" name="type" onChange={updateType}>
         <option value="education">Education</option>
         <option value="recreational">Recreational</option>
@@ -17,7 +17,7 @@ const Form = ({ type, getNewActivity, updateActivityType }) => {
         <option value="music">Music</option>
         <option value="busywork">Busywork</option>
       </select>
-      <button className="another" onClick={getAnotherIdea}>
+      <button className="another-btn" onClick={getAnotherIdea}>
         Give me another idea
       </button>
     </section>
