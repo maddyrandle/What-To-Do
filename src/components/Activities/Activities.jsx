@@ -7,9 +7,9 @@ const Activities = ({ activity, userList, updateUserList }) => {
     <section className="activities">
       <p className="card-title">YOU SHOULD</p>
       <div className="activity-card">
-        <p className="description">{activity.activity}</p>
+        <p className="activity-description">{activity.activity}</p>
       </div>
-      <button className="save-activity" onClick={saveToUserList}>
+      <button className="save-activity-btn" onClick={saveToUserList}>
         Save For Later
       </button>
     </section>
