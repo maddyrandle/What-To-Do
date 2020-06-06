@@ -1,18 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Nav = ({ myList, handleMyList }) => {
-
-  const handleNav = (e) => {
-    handleMyList(e.target.id);
-  }
+const Nav = ({ myList }) => {
 
   return (
     <nav className="nav">
       <Link
         to={'/'}
         className="activities-btn"
-        onClick={ handleNav }
       >
         <p id="activities">Activities</p>
       </Link>
@@ -20,7 +15,6 @@ const Nav = ({ myList, handleMyList }) => {
       <Link
         to={'/mylist'}
         className="favorites-btn"
-        onClick={ handleNav }
       >
         <p id="mylist">My List</p>
       </Link>
