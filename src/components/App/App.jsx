@@ -13,8 +13,10 @@ class App extends Component {
       }
   }
 
-  componentDidMount = (type, participants) => {
-    fetch(`http://www.boredapi.com/api/activity/?type=${ type || "education" }&participants=${ participants || 1 }&minprice=0&maxprice=0.5`)
+  componentDidMount = (type, price) => {
+    fetch(`http://www.boredapi.com/api/activity/?type=${ type || "education" }&minprice=0&maxprice=${ price || 0.5 }`)
+
+
       .then(response => response.json())
       .then(activityData => this.setState({
         activity: activityData,
