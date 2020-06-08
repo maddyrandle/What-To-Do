@@ -11,7 +11,6 @@ class Form extends Component {
 
   updateType = e => this.setState({type: e.target.value});
   updatePrice = e => this.setState({[e.target.name]: e.target.value})
-  
   getAnotherIdea = e => this.props.getNewActivity(
     this.state.type,
     this.state.price,
@@ -20,33 +19,35 @@ class Form extends Component {
   render() {
     return (
       <section className="form">
-        <label>Type</label>
-        <select className="input" name="type" onChange={this.updateType}>
-          <option value="education">Education</option>
-          <option value="recreational">Recreational</option>
-          <option value="social">Social</option>
-          <option value="diy">DIY</option>
-          <option value="charity">Charity</option>
-          <option value="cooking">Cooking</option>
-          <option value="music">Music</option>
-          <option value="busywork">Busywork</option>
-        </select>
 
-        <label>Max. Budget</label>
-        <input
-          className="input"
-          name="price"
-          type="range"
-          min="0"
-          max="1"
-          step="0.1"
-          value={ this.state.price }
-          onChange={ this.updatePrice }
-        />
+        <section className="flex">
+          <label htmlFor="select-type">Type</label>
+          <select id="select-type" name="type" onChange={this.updateType}>
+            <option value="education">Education</option>
+            <option value="recreational">Recreational</option>
+            <option value="social">Social</option>
+            <option value="diy">DIY</option>
+            <option value="charity">Charity</option>
+            <option value="cooking">Cooking</option>
+            <option value="music">Music</option>
+            <option value="busywork">Busywork</option>
+          </select>
+          <label>Max. Budget</label>
+          <input
+            className="select-type"
+            name="price"
+            type="range"
+            min="0"
+            max="1"
+            step="0.1"
+            value={ this.state.price }
+            onChange={ this.updatePrice }
+          />
+        </section>
 
-        <button className="another-btn" onClick={this.getAnotherIdea}>
-          Give me another idea
-        </button>
+        <section className="flex">
+          <button onClick={this.getAnotherIdea}>Give me another idea</button>
+        </section>
       </section>
     )
   }

@@ -3,13 +3,9 @@ import { Link } from 'react-router-dom';
 
 const Nav = () => {
   return (
-    <nav className="nav">
-      <Link to={'/'} className="activities-btn">
-        <p id="activities">Activities</p>
-      </Link>
-      <Link to={'/mylist'} className="favorites-btn">
-        <p id="mylist">My List</p>
-      </Link>
+    <nav>
+      <Link to={'/'} className="nav-link">Activities</Link>
+      <Link to={'/mylist'} className="nav-link">My List</Link>
     </nav>
   )
 }
