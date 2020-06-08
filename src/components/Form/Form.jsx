@@ -11,7 +11,7 @@ class Form extends Component {
 
   updateType = e => this.setState({type: e.target.value});
   updatePrice = e => this.setState({[e.target.name]: e.target.value})
-  
+
   getAnotherIdea = e => this.props.getNewActivity(
     this.state.type,
     this.state.price,
@@ -20,8 +20,8 @@ class Form extends Component {
   render() {
     return (
       <section className="form">
-        <label>Type</label>
-        <select className="input" name="type" onChange={this.updateType}>
+        <label htmlFor="typeInput">Type</label>
+        <select className="input" id="typeInput" name="type" onChange={this.updateType}>
           <option value="education">Education</option>
           <option value="recreational">Recreational</option>
           <option value="social">Social</option>
@@ -32,8 +32,9 @@ class Form extends Component {
           <option value="busywork">Busywork</option>
         </select>
 
-        <label>Max. Budget</label>
+        <label htmlFor="budgetInput">Max. Budget</label>
         <input
+          id="budgetInput"
           className="input"
           name="price"
           type="range"
