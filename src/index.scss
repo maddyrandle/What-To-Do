@@ -1,10 +1,9 @@
 @import './scss/variables';
 @import './scss/mixins';
 @import './src/components/Nav/Nav';
-@import './src/components/MyList/MyList';
 @import './src/components/Activities/Activities';
 @import './src/components/Form/Form';
-
+@import './src/components/MyList/MyList';
 
 * {
   box-sizing: border-box;
@@ -19,27 +18,33 @@ html {
 
 body,
 #root {
-  background-color: $background-dark;
   height: 100vh;
   width: 100vw;
 }
 
 #root {
-  // background-image: url('src/assets/paint.jpg');
   align-items: center;
+  // background-image: url('https://i.postimg.cc/k42RsLk6/boredbackground.jpg');
+  // background-position: center;
+  // background-repeat: no-repeat;
+  // background-size: cover;
   display: flex;
   justify-content: center;
 }
 
 .app-container {
   height: 600px;
-  margin-bottom: 7rem;
   width: 90%;
 }
 
 .card {
+  @include box-shadow-radius;
   height: 95%;
   width: 100%;
+}
+
+button {
+  @include button($background-dark);
 }
 
 #blockColorblindContent {

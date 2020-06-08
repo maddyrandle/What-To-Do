@@ -1,5 +1,6 @@
 @media (min-width: 768px) {
   .app-container {
+    border: $initial-border;
     display: flex;
     flex-direction: column;
     height: 450px;
@@ -16,21 +17,13 @@
     width: 100%;
   }
 
-  .activities {
+  .activities-container {
     height: 100%;
-    justify-content: initial;
+    justify-content: space-between;
     width: 65%;
-
-    .card-title {
-      padding-bottom: 1rem;
-    }
 
     .activity-card {
       height: 80px;
-    }
-
-    .save-activity-btn {
-      width: 45%;
     }
   }
 
@@ -39,12 +32,9 @@
     padding: 1rem 2rem;
     width: 35%;
 
-    .input {
+    #select-type,
+    .select-type {
       padding: .5rem;
-    }
-
-    .another-btn {
-      width: 100%;
     }
   }
 
