@@ -5,7 +5,7 @@ import Form from '../Form/Form';
 const Card = ({ activity, getNewActivity, updateUserList }) => {
 
   return (
-    <section className="card">
+    <section data-testid="card-element" className="card">
       <Activities
         activity={ activity }
         updateUserList={ updateUserList }
