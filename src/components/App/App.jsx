@@ -23,9 +23,9 @@ class App extends Component {
     })
   }
 
-  updateUserList = () => {
-    !this.state.userList.includes(this.state.activity) &&
-      this.setState({userList: [...this.state.userList, this.state.activity]})
+  updateUserList = (activity) => {
+    !this.state.userList.includes(activity) &&
+      this.setState({userList: [...this.state.userList, activity]})
   }
 
   removeFromUserList = id => {
