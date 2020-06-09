@@ -14,15 +14,22 @@ class App extends Component {
       }
   }
 
-  componentDidMount = (type, price) => {
+  componentDidMount = async (type, price) => {
     fetch(`http://www.boredapi.com/api/activity/?type=${ type || "education" }&minprice=0&maxprice=${ price || 0.5 }`)
       .then(response => response.json())
-      .then(activityData => this.setState({
-        activity: activityData,
-        type: activityData.type
+      .then(data => this.setState({
+        activity: data,
+        type: data.type
       }))
-      .catch(err => console.error(`There was an error: ${err}`));
+
   }
+  // componentDidMount = async (type, price) => {
+  //   const activityData = await getActivityData(type, price)
+  //   this.setState({
+  //     activity: activityData,
+  //     type: activityData.type
+  //   })
+  // }
 
   updateUserList = () => {
     !this.state.userList.includes(this.state.activity) &&
