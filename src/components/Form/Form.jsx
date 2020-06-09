@@ -19,7 +19,6 @@ class Form extends Component {
   render() {
     return (
       <section className="form">
-
         <section className="flex">
           <label htmlFor="select-type">Type</label>
           <select id="select-type" name="type" onChange={this.updateType}>
@@ -43,8 +42,11 @@ class Form extends Component {
             value={ this.state.price }
             onChange={ this.updatePrice }
           />
+          <div className="budget-range">
+            <p>Cheap</p>
+            <p>Expensive</p>
+          </div>
         </section>
-
         <section className="flex">
           <button onClick={this.getAnotherIdea}>Give me another idea</button>
         </section>
