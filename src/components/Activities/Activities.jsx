@@ -4,7 +4,7 @@ const Activities = ({ activity, updateUserList }) => {
   const saveToUserList = (e) => updateUserList();
 
   return (
-    <section className="activities-container">
+    <section data-testid="activity-card" className="activities-container">
       <section className="flex">
         <p className="you-should">YOU SHOULD</p>
         <div className="activity-card">
