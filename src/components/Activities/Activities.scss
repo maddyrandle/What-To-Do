@@ -8,7 +8,7 @@
   padding: 1rem 2rem;
 }
 
-.flex {
+.activity-card {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -21,16 +21,12 @@
   width: 100%;
 }
 
-.activity-card {
+.description {
   @include box-shadow-radius;
   background-color: $background-light;
   font-size: 22px;
   height: 90px;
+  overflow: scroll;
   padding: 1rem;
   width: 100%;
-}
-
-.description {
-  height: 100%;
-  overflow: scroll;
 }
