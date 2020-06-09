@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Activities = ({ activity, updateUserList }) => {
-  const saveToUserList = e => updateUserList();
+  const saveToUserList = e => updateUserList(activity);
 
   return (
     <section data-testid="activity-card" className="activities-container">
@@ -10,9 +10,9 @@ const Activities = ({ activity, updateUserList }) => {
         <p className="you-should">YOU SHOULD</p>
         <div className="description">
           { activity.activity || activity.error }
+          <p className="activity-details">Participants {activity.participants}</p>
         </div>
       </section>
-
       <section className="flex">
         <button onClick={saveToUserList}>
           Save For Later
