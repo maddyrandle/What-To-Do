@@ -1,6 +1,6 @@
 import React from 'react';
 import Form from './Form';
-import { render, fireEvent, cleanup } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 describe('Form default values', () => {
