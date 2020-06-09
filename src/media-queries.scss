@@ -1,9 +1,9 @@
 @media (min-width: 768px) {
   .app-container {
-    border: $initial-border;
     display: flex;
     flex-direction: column;
     height: 450px;
+    margin-bottom: 15rem;
     padding: 1rem;
     width: 80rem;
   }
