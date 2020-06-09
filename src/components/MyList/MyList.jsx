@@ -3,10 +3,9 @@ import React from 'react';
 const MyList = ({ userList, clearUserList }) => {
   const clearMyList = e => clearUserList();
 
-  const displayPriceKey = price =>
-    price !== 0 && price < 0.5
-      ? <p>$</p>
-      : price !== 0 && price <= 1 && <p>$$</p>;
+  const displayPriceKey = price => price !== 0 && price < 0.5
+    ? <p>$</p>
+    : price !== 0 && price <= 1 && <p>$$</p>;
 
   const activities = userList.map(activity => {
     return (
@@ -29,15 +28,11 @@ const MyList = ({ userList, clearUserList }) => {
       )
     : (
         <section className="mylist">
-          { activities }
-          <button className="clear-all-btn" onClick={clearMyList}>
-            Clear All
-          </button>
+          {activities}
+          <button onClick={clearMyList}>Clear All</button>
         </section>
       )
 
 }
 
 export default MyList;
-
-// { activity.link && <a href={activity.link} target='_blank' rel="noopener noreferrer">Open Website</a> }

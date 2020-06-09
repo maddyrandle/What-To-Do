@@ -1,10 +1,10 @@
 @import './scss/variables';
 @import './scss/mixins';
 @import './src/components/Nav/Nav';
-@import './src/components/MyList/MyList';
 @import './src/components/Activities/Activities';
 @import './src/components/Form/Form';
-
+@import './src/components/MyList/MyList';
+@import './src/components/Loading/Loading';
 
 * {
   box-sizing: border-box;
@@ -19,26 +19,40 @@ html {
 
 body,
 #root {
-  background-color: $background-dark;
   height: 100vh;
   width: 100vw;
 }
 
 #root {
   align-items: center;
+  background-image: url('https://i.postimg.cc/CKMnzTQ3/lydia-koh-B4-YCQ2fc7-IU-unsplash.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+}
+
+header {
+  font-size: 36px;
+  margin-bottom: 5rem;
 }
 
 .app-container {
   height: 600px;
-  margin-bottom: 7rem;
+  margin-bottom: 5rem;
   width: 90%;
 }
 
 .card {
+  @include box-shadow-radius;
   height: 95%;
   width: 100%;
+}
+
+button {
+  @include button($background-dark);
 }
 
 #blockColorblindContent {
