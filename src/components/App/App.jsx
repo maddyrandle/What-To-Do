@@ -31,6 +31,15 @@ class App extends Component {
 
   clearUserList = () => this.setState({userList: []});
 
+  removeFromUserList = id => {
+    this.state.userList.forEach((activity, i) => {
+      if (activity.key === id) {
+        this.state.userList.splice(i, 1)
+        this.setState({userList: this.state.userList})
+      }
+    })
+  }
+
   render() {
     return (
       <main className="app-container">
@@ -54,6 +63,7 @@ class App extends Component {
               myList={this.state.myList}
               userList={this.state.userList}
               clearUserList={this.clearUserList}
+              removeFromUserList={this.removeFromUserList}
             />
           } />
 

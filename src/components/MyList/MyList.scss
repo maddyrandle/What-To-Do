@@ -1,18 +1,22 @@
 .mylist {
   @include box-shadow-radius;
-  background: rgba(160, 169, 166, .85);
   align-items: center;
+  background: rgba(160, 169, 166, .85);
   display: flex;
   flex-direction: column;
   height: 95%;
+  justify-content: space-between;
   padding: 1rem 0;
   overflow: scroll;
 }
 
 .mylist-card {
   @include box-shadow-radius;
+  align-items: center;
   background-color: $background-light;
+  display: flex;
   font-size: 22px;
+  justify-content: space-between;
   margin: 1rem;
   padding: 1rem;
   overflow-wrap: break-word;
@@ -36,12 +40,23 @@
   display: flex;
   font-size: 16px;
   justify-content: space-between;
-  width: 30%;
-
+  width: 50%;
 }
 
 .empty-userlist-msg {
   font-size: 24px;
   padding: 3rem;
   text-align: center;
+}
+
+.close-btn {
+  border: none;
+}
+
+.flex-mylist {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
 }

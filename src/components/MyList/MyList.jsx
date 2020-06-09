@@ -1,20 +1,25 @@
 import React from 'react';
 
-const MyList = ({ userList, clearUserList }) => {
+const MyList = ({ userList, clearUserList, removeFromUserList }) => {
+  const clearActivity = e => removeFromUserList(e.target.id);
   const clearMyList = e => clearUserList();
-
-  const displayPriceKey = price => price !== 0 && price < 0.5
-    ? <p>$</p>
-    : price !== 0 && price <= 1 && <p>$$</p>;
 
   const activities = userList.map(activity => {
     return (
       <div className="mylist-card" key={ activity.key }>
-        <p className="type">{ activity.type.toUpperCase() }</p>
-        <p className="activity-name">{ activity.activity }</p>
-        <div className="activity-details">
-          <p>Participants {activity.participants}</p>
-          {displayPriceKey(activity.price)}
+        <div>
+          <p className="type">{ activity.type.toUpperCase() }</p>
+          <p className="activity-name">{ activity.activity }</p>
+          <p className="activity-details">Participants {activity.participants}</p>
+        </div>
+        <div>
+          <button
+            id={activity.key}
+            className="close-btn"
+            onClick={clearActivity}
+          >
+            X
+          </button>
         </div>
       </div>
     )
@@ -28,7 +33,10 @@ const MyList = ({ userList, clearUserList }) => {
       )
     : (
         <section className="mylist">
-          {activities}
+          <div className="flex-mylist">
+            {activities}
+          </div>
+
           <button onClick={clearMyList}>Clear All</button>
         </section>
       )
