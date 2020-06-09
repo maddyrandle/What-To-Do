@@ -12,4 +12,6 @@ describe('Form', () => {
     const maxBudgetInput = getByLabelText('Max. Budget');
     const anotherIdeaBtn = getByText('Give me another idea');
   })
+
+
 })
