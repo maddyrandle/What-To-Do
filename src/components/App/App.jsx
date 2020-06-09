@@ -3,7 +3,7 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import Nav from '../Nav/Nav';
 import Card from '../Card/Card';
 import MyList from '../MyList/MyList';
-// import { getActivityData } from '../../apiCalls';
+import Loading from '../Loading/Loading';
 
 class App extends Component {
   constructor() {
@@ -38,12 +38,26 @@ class App extends Component {
 
   clearUserList = () => this.setState({userList: []});
 
+  removeFromUserList = id => {
+    this.state.userList.forEach((activity, i) => {
+      if (activity.key === id) {
+        this.state.userList.splice(i, 1)
+        this.setState({userList: this.state.userList})
+      }
+    })
+  }
+
   render() {
     return (
       <main className="app-container">
         <BrowserRouter>
-          <Nav />
-          <Route exact path='/'render={ () =>
+          {
+            Object.keys(this.state.activity).length > 0
+              ? <Nav />
+              : <Loading />
+          }
+
+          <Route exact path='/' render={ () =>
             <Card
               activity={this.state.activity}
               getNewActivity={this.componentDidMount}
@@ -51,13 +65,15 @@ class App extends Component {
             />
           } />
 
-          <Route exact path='/mylist'render={ () =>
+          <Route exact path='/mylist' render={ () =>
             <MyList
               myList={this.state.myList}
               userList={this.state.userList}
               clearUserList={this.clearUserList}
+              removeFromUserList={this.removeFromUserList}
             />
           } />
+
         </BrowserRouter>
       </main>
     )

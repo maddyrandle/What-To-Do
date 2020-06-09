@@ -1,5 +1,5 @@
-.activities {
-  background-color: $background-medium-dark;
+.activities-container {
+  background: rgba(160, 169, 166, .85);
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -8,28 +8,29 @@
   padding: 1rem 2rem;
 }
 
-.card-title {
-  font-size: 15px;
-  padding-top: 1rem;
+.flex {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   width: 100%;
 }
 
-.save-activity-btn {
-  color: $font-dark;
-  font-size: 16px;
-  padding: .5rem;
-  width: 50%;
+.you-should {
+  font-size: 15px;
+  padding: 1rem 0;
+  width: 100%;
 }
 
 .activity-card {
+  @include box-shadow-radius;
   background-color: $background-light;
   font-size: 22px;
-  height: 50%;
+  height: 90px;
   padding: 1rem;
   width: 100%;
 }
 
-.activity-description {
+.description {
   height: 100%;
   overflow: scroll;
 }

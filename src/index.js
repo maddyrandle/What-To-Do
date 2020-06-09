@@ -5,7 +5,12 @@ import './index.scss';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <App />,
+  <>
+    <header>
+      WHAT TO DO?
+    </header>
+    <App />
+  </>,
   document.getElementById('root')
 );
 
