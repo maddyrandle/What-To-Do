@@ -7,7 +7,7 @@ import * as serviceWorker from './serviceWorker';
 ReactDOM.render(
   <>
     <header>
-      What To Do?
+      WHAT TO DO?
     </header>
     <App />
   </>,
