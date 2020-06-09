@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const MyList = ({ userList, clearUserList, removeFromUserList }) => {
   const clearActivity = e => removeFromUserList(e.target.id);
@@ -40,7 +41,12 @@ const MyList = ({ userList, clearUserList, removeFromUserList }) => {
           <button onClick={clearMyList}>Clear All</button>
         </section>
       )
-
 }
 
 export default MyList;
+
+MyList.propTypes = {
+  userList: PropTypes.array,
+  clearUserList: PropTypes.func,
+  removeFromUserList: PropTypes.func
+};
