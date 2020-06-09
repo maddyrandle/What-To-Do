@@ -1,11 +1,19 @@
 import React from 'react';
 import Form from './Form';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 describe('Form default values', () => {
+  let formComponent;
+
+  beforeEach(() => {
+    formComponent = render(<Form />)
+  });
+
+  afterEach( () => cleanup );
+
   it('Should have a type field with unique activity options', () => {
-    const { getByLabelText, getByText, getByDisplayValue } = render(<Form />);
+    const { getByLabelText, getByText, getByDisplayValue } = formComponent;
     const label = getByLabelText('Type');
     const defaultValue = getByDisplayValue('Education');
     const recreational = getByText('Recreational');
@@ -28,7 +36,7 @@ describe('Form default values', () => {
   });
 
   it('Should have a max budget field', () => {
-    const { getByLabelText, getByText } = render(<Form />);
+    const { getByLabelText, getByText } = formComponent;
     const label = getByLabelText('Max. Budget');
     const minBudget = getByText('Cheap');
     const maxBudget = getByText('Expensive');
@@ -39,38 +47,47 @@ describe('Form default values', () => {
   });
 
   it('Should have a button to get another idea', () => {
-    const { getByText } = render(<Form />);
+    const { getByText } = formComponent;
     const button = getByText('Give me another idea');
 
     expect(button).toBeInTheDocument();
   });
-})
-
+});
 
 describe('Form event testing', () => {
+  let formComponent;
+
+  beforeEach(() => {
+    formComponent = render(
+      <Form getNewActivity={jest.fn()} />
+    )
+  });
+
+  afterEach( () => cleanup );
+
   it('Should update activity type on user selection', () => {
-    const { getByLabelText, getByDisplayValue  } = render(<Form />)
+    const { getByLabelText, getByDisplayValue  } = formComponent;
     const label = getByLabelText('Type');
     const defaultValue = getByDisplayValue('Education');
 
     fireEvent.change(label, { target: { value: 'recreational' } });
 
     expect(defaultValue.value).toBe('recreational');
-  })
+  });
 
   it('Should update max budget on user input', () => {
-    const { getByLabelText } = render(<Form />)
+    const { getByLabelText } = formComponent;
     const label = getByLabelText('Max. Budget');
 
     expect(label.value).toBe('0.5');
     fireEvent.change(label, { target: { value: 0.8 } });
     expect(label.value).toBe('0.8');
-  })
+  });
 
   it('Should invoke getNewActivity method', () => {
-    const { getByText } = render(<Form getNewActivity={jest.fn()} />)
+    const { getByText } = formComponent;
     const button = getByText('Give me another idea');
 
     fireEvent.click(button);
-  })
-})
+  });
+});
