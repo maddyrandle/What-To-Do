@@ -4,9 +4,11 @@ import { render, fireEvent, cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 describe('MyList', () => {
-  let mylistComponent;
+  let mylistComponent, mockClearUserList, mockRemoveFromUserList;
 
   beforeEach(() => {
+    mockClearUserList = jest.fn();
+    mockRemoveFromUserList = jest.fn();
     mylistComponent = render(
       <MyList
         userList={[
@@ -20,8 +22,8 @@ describe('MyList', () => {
             type: 'education'
           }
         ]}
-        clearUserList={jest.fn()}
-        removeFromUserList={jest.fn()}
+        clearUserList={mockClearUserList}
+        removeFromUserList={mockRemoveFromUserList}
       />
     )
   });
@@ -49,17 +51,22 @@ describe('MyList', () => {
     expect(button).toBeInTheDocument();
   });
 
-  it('Should invoke the clearUserList method', () => {
+  it('Should send the correct data up to app via clearUserList', () => {
     const { getByText } = mylistComponent;
     const button = getByText('Clear All');
 
     fireEvent.click(button);
+
+    expect(mockClearUserList).toHaveBeenCalledTimes(1);
   });
 
-  it('Should invoke the removeFromUserList method', () => {
+  it('Should send the correct data up to app via removeFromUserList', () => {
     const { getByText } = mylistComponent;
     const button = getByText('X');
 
     fireEvent.click(button);
+
+    expect(mockRemoveFromUserList).toHaveBeenCalledTimes(1);
+    expect(mockRemoveFromUserList).toHaveBeenCalledWith('7154873');
   });
 });

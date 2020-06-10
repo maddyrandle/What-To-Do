@@ -55,11 +55,12 @@ describe('Form default values', () => {
 });
 
 describe('Form event testing', () => {
-  let formComponent;
+  let formComponent, mockGetNewActivity;
 
   beforeEach(() => {
+    mockGetNewActivity = jest.fn();
     formComponent = render(
-      <Form getNewActivity={jest.fn()} />
+      <Form getNewActivity={mockGetNewActivity} />
     )
   });
 
@@ -84,10 +85,14 @@ describe('Form event testing', () => {
     expect(label.value).toBe('0.8');
   });
 
-  it('Should invoke getNewActivity method', () => {
+  it('Should send the correct data up to app via getNewActivity', () => {
     const { getByText } = formComponent;
     const button = getByText('Give me another idea');
 
     fireEvent.click(button);
+
+    expect(mockGetNewActivity).toHaveBeenCalledTimes(1);
+    expect(mockGetNewActivity).toHaveBeenCalledWith('education', 0.5);
   });
+  
 });

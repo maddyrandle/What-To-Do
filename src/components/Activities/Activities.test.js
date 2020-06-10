@@ -52,7 +52,7 @@ describe('Activities', () => {
     expect(button).toBeInTheDocument();
   });
 
-  it('Should invoke the updateUserList method', () => {
+  it('Should send the correct data up to app via updateUserList', () => {
     const { getByText } = activityComponent;
     const button = getByText('Save For Later');
 
