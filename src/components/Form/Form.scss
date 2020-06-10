@@ -13,6 +13,11 @@ label {
   padding: 1rem 0;
   width: 100%;
 }
+.flex {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
 
 #select-type,
 .select-type {
