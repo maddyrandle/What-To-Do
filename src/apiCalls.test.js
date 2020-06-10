@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import App from './components/App/App';
 import '@testing-library/jest-dom';
 import { render, waitFor, screen } from '@testing-library/react';
