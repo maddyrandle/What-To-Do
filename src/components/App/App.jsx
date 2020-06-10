@@ -1,79 +1,64 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route } from 'react-router-dom';
+import { getActivityData } from '../../apiCalls';
 import Nav from '../Nav/Nav';
-import Card from '../Card/Card';
+import Activities from '../Activities/Activities';
+import Form from '../Form/Form';
 import MyList from '../MyList/MyList';
-import Loading from '../Loading/Loading';
 
 class App extends Component {
   constructor() {
     super();
       this.state = {
         activity: {},
-        userList: [],
+        userList: []
       }
   }
 
   componentDidMount = async (type, price) => {
-    fetch(`http://www.boredapi.com/api/activity/?type=${ type || "education" }&minprice=0&maxprice=${ price || 0.5 }`)
-      .then(response => response.json())
-      .then(data => this.setState({
-        activity: data,
-        type: data.type
-      }))
-
+    const activityData = await getActivityData(type, price)
+    this.setState({
+      activity: activityData,
+      type: activityData.type
+    })
   }
-  // componentDidMount = async (type, price) => {
-  //   const activityData = await getActivityData(type, price)
-  //   this.setState({
-  //     activity: activityData,
-  //     type: activityData.type
-  //   })
-  // }
 
-  updateUserList = () => {
-    !this.state.userList.includes(this.state.activity) &&
-      this.setState({userList: [...this.state.userList, this.state.activity]})
+  updateUserList = (activity) => {
+    !this.state.userList.includes(activity) &&
+      this.setState({userList: [...this.state.userList, activity]})
+  }
+
+  removeFromUserList = id => {
+    this.state.userList.forEach((activity, i) => activity.key === id
+      && this.state.userList.splice(i, 1));
+
+    this.setState({userList: this.state.userList})
   }
 
   clearUserList = () => this.setState({userList: []});
-
-  removeFromUserList = id => {
-    this.state.userList.forEach((activity, i) => {
-      if (activity.key === id) {
-        this.state.userList.splice(i, 1)
-        this.setState({userList: this.state.userList})
-      }
-    })
-  }
 
   render() {
     return (
       <main className="app-container">
         <BrowserRouter>
-          {
-            Object.keys(this.state.activity).length > 0
-              ? <Nav />
-              : <Loading />
-          }
-
+          <Nav />
           <Route exact path='/' render={ () =>
-            <Card
-              activity={this.state.activity}
-              getNewActivity={this.componentDidMount}
-              updateUserList={this.updateUserList}
-            />
+            <section data-testid="card-element" className="card">
+              <Activities
+                activity={this.state.activity}
+                updateUserList={this.updateUserList}
+              />
+              <Form getNewActivity={this.componentDidMount} />
+            </section>
           } />
 
           <Route exact path='/mylist' render={ () =>
             <MyList
-              myList={this.state.myList}
               userList={this.state.userList}
               clearUserList={this.clearUserList}
               removeFromUserList={this.removeFromUserList}
             />
           } />
-
         </BrowserRouter>
       </main>
     )
