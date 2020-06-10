@@ -16,7 +16,7 @@
 
 ## App Screenshots
 ### Activity View
-![Activity View](https://i.postimg.cc/j2Z1b0ms/Screen-Shot-2020-06-09-at-8-47-11-PM.png)
+![Activity View](https://i.postimg.cc/DZgJdn8d/Screen-Shot-2020-06-09-at-9-06-11-PM.png)
 
 ### My List View
-![My List View](https://i.postimg.cc/y6Pt9cdw/Screen-Shot-2020-06-09-at-8-47-47-PM.png)
+![My List View](https://i.postimg.cc/j2SWMmfV/Screen-Shot-2020-06-09-at-9-06-58-PM.png)
