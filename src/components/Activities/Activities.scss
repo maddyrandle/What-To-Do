@@ -24,8 +24,11 @@
 .description {
   @include box-shadow-radius;
   background-color: $background-light;
+  display: flex;
+  flex-direction: column;
   font-size: 22px;
   height: 90px;
+  justify-content: space-between;
   overflow: scroll;
   padding: 1rem;
   width: 100%;
