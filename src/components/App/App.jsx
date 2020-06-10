@@ -54,7 +54,6 @@ class App extends Component {
 
           <Route exact path='/mylist' render={ () =>
             <MyList
-              myList={this.state.myList}
               userList={this.state.userList}
               clearUserList={this.clearUserList}
               removeFromUserList={this.removeFromUserList}
