@@ -4,9 +4,10 @@ import { render, fireEvent, cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 describe('Activities', () => {
-  let activityComponent;
+  let activityComponent, mockUpdateUserList;
 
   beforeEach(() => {
+    mockUpdateUserList = jest.fn();
     activityComponent = render(
       <Activities
         activity={
@@ -16,7 +17,7 @@ describe('Activities', () => {
             key: "1162360"
           }
         }
-        updateUserList={jest.fn()}
+        updateUserList={mockUpdateUserList}
       />
     )
   });
@@ -56,5 +57,8 @@ describe('Activities', () => {
     const button = getByText('Save For Later');
 
     fireEvent.click(button);
+
+    expect(mockUpdateUserList).toHaveBeenCalledTimes(1);
+    expect(mockUpdateUserList).toHaveBeenCalledWith({"activity": "Paint the first thing you see", "key": "1162360", "participants": 1});
   });
 });
