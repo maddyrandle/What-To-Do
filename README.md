@@ -5,7 +5,7 @@
 **Technologies Used:**
 *React*, *React Router*, *ES6*, *TDD*, *SCSS*, *Fetch API for receiving 3rd party data*
 
-*What To Do?* is an appication I built during my time at [Turing School of Softwar and Design](http://turing.io). The goal for this project, over the course of five days, was to............
+*What To Do?* is an appication I built during my time at [Turing School of Softwar and Design](http://turing.io). The goal for this project, over the course of five days, was to choose an open API and make an application based on the data from the API. *What To Do?* allows a user, who is bored or unsure of what to do, to select an activity type and the maximum budget they're willing to spend in order to recieve activity suggetions based on their input.
 
 ## Setup
 1. clone down this repo to desired location
@@ -14,6 +14,9 @@
 4. run `npm start`
 5. Open localhost:3000 in your favorite browser (unless your terminal says otherwise)
 
-## Animation 
+## App Screenshots
+### Activity View
+![Activity View](https://i.postimg.cc/j2Z1b0ms/Screen-Shot-2020-06-09-at-8-47-11-PM.png)
 
-## Screenshots
+### My List View
+![My List View](https://i.postimg.cc/y6Pt9cdw/Screen-Shot-2020-06-09-at-8-47-47-PM.png)
