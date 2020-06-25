@@ -10,8 +10,7 @@ class Form extends Component {
       }
   }
 
-  updateType = e => this.setState({type: e.target.value});
-  updatePrice = e => this.setState({[e.target.name]: e.target.value});
+  updateState = e => this.setState({[e.target.name]: e.target.value});
   handleNewActivity = e => this.props.getNewActivity(
     this.state.type,
     this.state.price,
@@ -22,7 +21,7 @@ class Form extends Component {
       <section className="form">
         <section className="flex">
           <label htmlFor="select-type">Type</label>
-          <select id="select-type" name="type" onChange={this.updateType}>
+          <select id="select-type" name="type" onChange={this.updateState}>
             <option value="education">Education</option>
             <option value="recreational">Recreational</option>
             <option value="social">Social</option>
@@ -42,7 +41,7 @@ class Form extends Component {
             max="1"
             step="0.1"
             value={ this.state.price }
-            onChange={ this.updatePrice }
+            onChange={ this.updateState }
           />
           <div className="budget-range">
             <p>Cheap</p>
