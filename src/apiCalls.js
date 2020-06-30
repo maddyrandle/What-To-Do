@@ -4,5 +4,5 @@ export const getActivityData = async (type, price) => {
       "Target-URL": `https://www.boredapi.com/api/activity/?type=${ type || "education" }&minprice=0&maxprice=${ price || 0.5 }`
     }
   })
-  return await result.json();
+  return await result.json()
 }
